@@ -84,7 +84,7 @@ DirectX12
 ### 待機
 一定時間操作していないと待機モーションが変化するようにしました。
 
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](Idle_video.png)">
 <source src="Idle.mp4"type="video/mp4">
 </video>
 
@@ -100,7 +100,7 @@ DirectX12
 
 実際のゲーム画面
 
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
 <source src="move_camera.mp4"type="video/mp4">
 </video>
 
@@ -108,7 +108,7 @@ DirectX12
 
 ジャンプボタンを押した時間によって、ジャンプ力を変化しました。<br>
 
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](jump_video)">
 <source src="jump.mp4"type="video/mp4">
 </video>
 
@@ -124,7 +124,7 @@ DirectX12
 プレイヤーのモデルに合わせて、ローポリで作成しました。<br>
 画面に動きが欲しかったので、所々の背景モデルにアニメーションを追加しました。<br>
 
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage_video)">
 <source src="stage.mp4"type="video/mp4">
 </video>
 

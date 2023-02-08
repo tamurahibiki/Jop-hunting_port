@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>port.md</title>
+<title>index.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -443,7 +443,7 @@ DirectX12</p>
 <h2 id="%E6%93%8D%E4%BD%9C">操作</h2>
 <h3 id="%E5%BE%85%E6%A9%9F">待機</h3>
 <p>一定時間操作していないと待機モーションが変化するようにしました。</p>
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](Idle_video.png)">
 <source src="Idle.mp4"type="video/mp4">
 </video>
 <h3 id="%E7%A7%BB%E5%8B%95">移動</h3>
@@ -453,16 +453,16 @@ DirectX12</p>
 スティックの入力方向が変わるか、スティックを離すことで、現在のカメラ方向に移動方向が変わるようにしました。<strong>[3]</strong><br></p>
 <p><img src="camera_move1.png" width="400" height=456px ><img src="camera_move2.png" width="400" height=456px ><img src="camera_move3.png" width="400" height=456px ></p>
 <p>実際のゲーム画面</p>
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
 <source src="move_camera.mp4"type="video/mp4">
 </video>
 <h3 id="%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%97">ジャンプ</h3>
 <p>ジャンプボタンを押した時間によって、ジャンプ力を変化しました。<br></p>
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](jump_video)">
 <source src="jump.mp4"type="video/mp4">
 </video>
-<p>マリオの
-上昇中の重力を弱くし、下降中の重力を強くすることで、空中での操作感を再現しました。<br>
+<p>マリオのジャンプした時の軌道が放物線にならないのが特徴的です。これは、上昇速度と下降速度が異なるからです。<br>
+そこで、上昇中の重力を弱くし、下降中の重力を強くすることで、再現しました。<br>
 <img src="jump.png" alt="Alt text"><br></p>
 <h3 id="%E3%83%92%E3%83%83%E3%83%97%E3%83%89%E3%83%AD%E3%83%83%E3%83%97">ヒップドロップ</h3>
 <p>着地してから再度動けるようになる時間を設けました。<br></p>
@@ -470,7 +470,7 @@ DirectX12</p>
 <h3 id="%E8%83%8C%E6%99%AF">背景</h3>
 <p>プレイヤーのモデルに合わせて、ローポリで作成しました。<br>
 画面に動きが欲しかったので、所々の背景モデルにアニメーションを追加しました。<br></p>
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage1.png)">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage_video)">
 <source src="stage.mp4"type="video/mp4">
 </video>
 <h3 id="%E9%B3%A5">鳥</h3>
