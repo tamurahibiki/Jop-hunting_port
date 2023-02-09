@@ -447,7 +447,7 @@ DirectX12</p>
 <source src="Idle.mp4"type="video/mp4">
 </video>
 <h3 id="%E7%A7%BB%E5%8B%95">移動</h3>
-<p>移動をやめた時、慣性が付くようにしました。</p>
+<p>移動をやめた時、現在の速度を徐々に落とす事で慣性が付くようにしました。</p>
 <p>カメラの前、右方向とスティックの方向を使いプレイヤーの移動を実装しました。<strong>[1]</strong><br>
 カメラ切り替え時、１フレーム前のカメラ方向を使い移動方向維持するようにしました。<strong>[2]</strong><br>
 スティックの入力方向が変わるか、スティックを離すことで、現在のカメラ方向に移動方向が変わるようにしました。<strong>[3]</strong><br></p>
@@ -480,13 +480,37 @@ DirectX12</p>
 （途中でプレイヤーの方向が変わると小石の方向も変わってしまう為、一度だけ）<br></p>
 <h2 id="%E6%95%B5">敵</h2>
 <h3 id="%E8%B5%A4%E3%81%84%E6%95%B5%E8%BF%BD%E3%81%84%E3%81%8B%E3%81%91%E3%81%A6%E3%81%8F%E3%82%8B%E6%95%B5">赤い敵（追いかけてくる敵）</h3>
+<p><img src="enemy_red.png" width="700" height=456px ><br>
+プレイヤーが近づくと追いかけてくるように移動します。（XZ軸）</p>
 <h3 id="%E9%BB%84%E8%89%B2%E3%81%84%E6%95%B5%E9%A3%9B%E3%82%93%E3%81%A7%E8%BF%BD%E3%81%84%E3%81%8B%E3%81%91%E3%81%A6%E3%81%8F%E3%82%8B%E6%95%B5">黄色い敵（飛んで追いかけてくる敵)</h3>
+<p><img src="enemy_yellow.png" width="700" height=456px ><br>
+プレイヤーが近づくと追いかけてくるように移動します。<br>
+赤い敵とは違い、飛んで追いかけてくるためY軸も移動させるようにしました。<br>
+まったく同じ高さ（Y軸）になると敵を踏んで倒しにくいため、プレイヤーの少し下に追いかけてくるようにしています。<br></p>
 <h3 id="%E7%A1%AC%E3%81%84%E6%95%B5%E9%81%A0%E8%B7%9D%E9%9B%A2%E6%94%BB%E6%92%83%E3%82%92%E8%A1%8C%E3%81%86%E6%95%B5">硬い敵（遠距離攻撃を行う敵）</h3>
+<p><img src="enemy_green.png" width="700" height=456px ><br>
+遠距離攻撃を行う敵とヒップドロップでしか倒せない敵が欲しかった為、制作しました。</p>
 <h2 id="%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF">ギミック</h2>
 <h3 id="%E5%A3%8A%E3%81%9B%E3%82%8B%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">壊せるブロック</h3>
 <h3 id="%E5%A4%A7%E7%A0%B2">大砲</h3>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+<p>プレイヤーが大砲に近づくと大砲のアニメーション再生され発射、 <strong>空中にある当たり判定</strong> まで移動します。この時、<em>重力を０にします。</em><br>
+そして、空中の当たり判定にプレイヤーが衝突すると、速度を徐々に落とします。また、この時に<em>重力を元に戻す</em>ことで着地します。
+<img src="fort.png" width="800" height=456px ><br></p>
 <h2 id="%E6%BC%94%E5%87%BA">演出</h2>
 <h3 id="%E3%82%AB%E3%83%A1%E3%83%A9">カメラ</h3>
+<p>所々でカメラの切り替えを行いました。<br></p>
+<h4 id="%E5%A5%A5%E8%A1%8C%E3%81%8D%E3%82%92%E5%88%A4%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F%E3%81%99%E3%82%8B%E3%82%AB%E3%83%A1%E3%83%A9br">奥行きを判りやすくするカメラ<br></h4>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
+<source src="move_camera.mp4"type="video/mp4">
+</video>
+<h4 id="%E5%A4%A7%E7%A0%B2%E7%94%A8%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9br">大砲用のカメラ<br></h4>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+<h4 id="%E3%82%B4%E3%83%BC%E3%83%AB%E7%94%A8%E3%81%AE%E3%82%AB%E3%83%A1%E3%83%A9br">ゴール用のカメラ<br></h4>
 <h3 id="%E5%BD%B1">影</h3>
 
 </body>

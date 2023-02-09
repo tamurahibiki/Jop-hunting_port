@@ -90,7 +90,7 @@ DirectX12
 
 ### 移動
 
-移動をやめた時、慣性が付くようにしました。
+移動をやめた時、現在の速度を徐々に落とす事で慣性が付くようにしました。
 
 カメラの前、右方向とスティックの方向を使いプレイヤーの移動を実装しました。__[1]__<br>
 カメラ切り替え時、１フレーム前のカメラ方向を使い移動方向維持するようにしました。__[2]__<br>
@@ -112,7 +112,7 @@ DirectX12
 <source src="jump.mp4"type="video/mp4">
 </video>
 
-マリオのジャンプした時の軌道が放物線にならないのが特徴的です。これは、上昇速度と下降速度が異なるからです。<br>
+マリオはジャンプした時の軌道が放物線にならないのが特徴的です。これは、上昇速度と下降速度が異なるからです。<br>
 そこで、上昇中の重力を弱くし、下降中の重力を強くすることで、再現しました。<br>
 ![Alt text](jump.png)<br>
 
@@ -136,18 +136,50 @@ DirectX12
 
 ## 敵
 ### 赤い敵（追いかけてくる敵）
+<img src="enemy_red.png" width="700" height=456px ><br>
+プレイヤーが近づくと追いかけてくるように移動します。（XZ軸移動）
 
 ### 黄色い敵（飛んで追いかけてくる敵)
+<img src="enemy_yellow.png" width="700" height=456px ><br>
+プレイヤーが近づくと追いかけてくるように移動します。（XYZ軸移動）<br>
+赤い敵とは違い、飛んで追いかけてくるためY軸も移動させるようにしました。<br>
+まったく同じ高さ（Y軸）になると敵を踏んで倒しにくいため、プレイヤーの少し下に追いかけてくるようにしています。<br>
 
 ### 硬い敵（遠距離攻撃を行う敵）
+<img src="enemy_green.png" width="700" height=456px ><br>
+遠距離攻撃を行う敵とヒップドロップでしか倒せない敵が欲しかった為、制作しました。
 
 ## ギミック
 ### 壊せるブロック
 
 ### 大砲
 
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+
+プレイヤーが大砲に近づくと大砲のアニメーション再生され発射、 __空中にある当たり判定__ まで移動します。この時、__重力を０__ にします。<br>
+そして、空中の当たり判定にプレイヤーが衝突すると、速度を徐々に落とします。また、この時に __重力を元に戻す__ ことで着地します。
+<img src="fort.png" width="800" height=456px ><br>
 
 ## 演出
 ### カメラ
+所々でカメラの切り替えを行いました。<br>
+#### 奥行きを分かりやすくするカメラ<br>
+
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
+<source src="move_camera.mp4"type="video/mp4">
+</video>
+
+#### 大砲用のカメラ<br>
+
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+
+#### ゴール用のカメラ<br>
+
 
 ### 影
+ジャンプなどの着地先を分かりやすくする為、ライトカメラの方向を真下に設定しました。<br>
+プレイヤーの座標を中心に影の濃さを変更しています。(プレイヤーから離れるほど薄くなる）<br>
