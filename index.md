@@ -182,7 +182,7 @@ __ゲームオーバー__<br>
 # 4. こだわり・工夫した部分
 ## 操作
 ### 待機
-様々な既存のゲーム（マリオ、スマブラなど）で操作をせずにしていると、キャラクター独自のモーションに変化することを参考にしました。<br>
+様々な既存のゲームで操作をせずにしていると、キャラクター独自のモーションに変化することを参考にしました。<br>
 一定時間操作していないと待機モーションが変化するようにしました。<br>
 
 <video controls preload width="780" autoplay loop muted="true" poster="![Alt text](Idle_video.png)">
@@ -258,7 +258,7 @@ _問題点と解決_<br>
 
 ## ステージ
 ### 背景
-プレイヤーのモデルに合わせて、ローポリゴンで作成しました。<br>
+プレイヤーのモデルに合わせて、ローポリで作成しました。<br>
 画面に動きが欲しかったので、所々の背景モデルにアニメーションを追加しました。<br>
 
 <img src="stage3.png" width="780" height=456px ><br>
@@ -341,6 +341,7 @@ __大砲用のカメラ__<br>
 </video>
 
 __ゴール用のカメラ__<br>
+プレイヤーをターゲットとして、宝石と一直線の角度になるように視点を計算しています。<br>
 
 <video controls preload width="780" autoplay loop muted="true" poster="![Alt text](goal_video">
 <source src="goal.mp4"type="video/mp4">
@@ -352,7 +353,6 @@ __影__<br>
 <img src="stage1.png" width="780" height=456px >
 
 プレイヤーの座標を中心に __影の濃さ__ を変更しています。(プレイヤーから離れるほど薄くなる）<br>
-
 
 
 <video controls preload width="780" autoplay loop muted="true" poster="![Alt text](shadow_video">
