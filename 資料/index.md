@@ -258,7 +258,7 @@ _問題点と解決_<br>
 
 ## ステージ
 ### 背景
-プレイヤーのモデルに合わせて、ローポリゴンで作成しました。<br>
+プレイヤーのモデルに合わせて、ローポリで作成しました。<br>
 画面に動きが欲しかったので、所々の背景モデルにアニメーションを追加しました。<br>
 
 <img src="stage3.png" width="780" height=456px ><br>
@@ -352,8 +352,6 @@ __影__<br>
 <img src="stage1.png" width="780" height=456px >
 
 プレイヤーの座標を中心に __影の濃さ__ を変更しています。(プレイヤーから離れるほど薄くなる）<br>
-
-
 
 <video controls preload width="780" autoplay loop muted="true" poster="![Alt text](shadow_video">
 <source src="shadow.mp4"type="video/mp4">
