@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1> スーパーアクション3D<h1>
+河原電子ビジネス専門学校<br>
+ゲームクリエイター科　2年　田村響己<br>
+<!-- omit in toc -->
+<h1 id="%E7%9B%AE%E6%AC%A1">目次</h1>
+  <!-- omit in toc -->
+<ul>
+<li><a href="#1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. 作品概要</a></li>
+<li><a href="#2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. 操作説明</a></li>
+<li><a href="#3-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">3. ゲーム内容</a></li>
+<li><a href="#4-%E3%81%93%E3%81%A0%E3%82%8F%E3%82%8A%E5%B7%A5%E5%A4%AB%E3%81%97%E3%81%9F%E9%83%A8%E5%88%86">4. こだわり・工夫した部分</a></li>
+<li><a href="#5-%E7%8F%BE%E7%8A%B6%E3%81%AE%E5%8F%8D%E7%9C%81%E7%82%B9%E3%81%A8%E4%BB%8A%E5%BE%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">5. 現状の反省点と今後について</a></li>
+</ul>
+<h1 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. 作品概要</h1>
+<h2 id="%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB">タイトル</h2>
+<h2 id="%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%93dbr"><em>スーパーアクション３D</em><br></h2>
+<h2 id="%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B8%E3%83%A3%E3%83%B3%E3%83%AB">ゲームジャンル</h2>
+<p>アクションゲーム</p>
+<h2 id="%E5%8F%82%E8%80%83%E3%82%B2%E3%83%BC%E3%83%A0">参考ゲーム</h2>
+<p>スーパーマリオ3Dワールド<br></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3">使用エンジン</h2>
+<p>学校内製の簡易エンジンを改造(DirectX12)<br></p>
+<h2 id="%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83">開発環境</h2>
+<p>Windows10<br>
+DirectX12<br></p>
+<h2 id="%E4%BD%BF%E7%94%A8%E8%A8%80%E8%AA%9E">使用言語</h2>
+<p>C++<br>
+HLSL<br></p>
+<h2 id="%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">作成したソースコード</h2>
+<h2 id=""></h2>
+<details><summary>ゲーム部分(cpp,h)</summary>
+<p>Bard.cpp<br>
+Bard.h<br>
+Bg.cpp<br>
+Bg.h<br>
+Block.cpp<br>
+Block.h<br>
+Box.cpp<br>
+Box.h<br>
+Bush.cpp<br>
+Bush.h<br>
+Default.cpp<br>
+Default.h<br>
+Dokan.cpp<br>
+Dokan.h<br>
+Enemy_Green.cpp<br>
+Enemy_Green.h<br>
+Enemy_Red.cpp<br>
+Enemy_Red.h<br>
+Enemy_Yellow.cpp<br>
+Enemy_Yellow.h<br>
+Fade.cpp<br>
+Fade.h<br>
+Fence.cpp<br>
+Fence.h<br>
+Fence2.cpp<br>
+Fence2.h<br>
+Flower.cpp<br>
+Flower.h<br>
+FlowerBed.cpp<br>
+FlowerBed.h<br>
+Fort.cpp<br>
+FOrt.h<br>
+Forward.cpp<br>
+Forward.h<br>
+Game.cpp<br>
+Game.h<br>
+GameCamera.cpp<br>
+GameCamera.h<br>
+GoalPoint.cpp<br>
+GoalPoint.h<br>
+Grass.cpp<br>
+Geass.h<br>
+GroundMove.cpp<br>
+GroundMove.h<br>
+HitBox.cpp<br>
+main.cpp<br>
+Pebble.cpp<br>
+Pebble.h<br>
+Player.cpp<br>
+Player.h<br>
+Player_Hed.cpp<br>
+Player_Hed.h<br>
+Rock_Attack.cpp<br>
+Rock_Attack.h.h<br>
+Rock_Big.cpp<br>
+Rock_Big.h<br>
+SignBoard.cpp<br>
+SignBoard.h<br>
+Stairs.cpp<br>
+Stairs.h<br>
+Title.cpp<br>
+Title.h<br>
+Tree.cpp<br>
+Tree.h<br>
+Windmill.cpp<br>
+Windmill.h<br>
+Wood_Road.cpp<br>
+Wood_Rock.h<br>
+WoodenBox.cpp<br>
+WoodenBox.h<br></p>
+</details>
+<h2 id=""></h2>
+<details><summary>エンジン部分(cpp,h)</summary>
+Bloom.h<br>
+Bloom.cpp<br>
+CollisionObject.h<br>
+CollisionObject.cpp<br>
+FontRender.h<br>
+FontRender.cpp<br>
+IRenderer.h<br>
+IRenderer.cpp<br>
+LightALL.h<br>
+LightALL.cpp<br>
+ModelRender.h<br>
+ModelRender.cpp<br>
+PostEffect.h<br>
+PostEffect.cpp<br>
+RenderingEngine.h<br>
+RenderingEngine.cpp<br>
+ShadowMapRender.h<br>
+ShadowMapRender.cpp<br>
+SkyCube.h<br>
+SkyCubr.cpp<br>
+SpriteRender.h<br>
+SpriteRender.cpp<br>
+</details>
+<h2 id=""></h2>
+<details><summary>シェーダー部分(fx,h)</summary>
+DrawShadowMap.fx<br>
+gaussianBlur.fx<br>
+light.fx<br>
+model.fx<br>
+ModelVSCommon.h<br>
+PostEffect.fx<br>
+SkyCubeMap.fx<br>
+sprite.fx<br>
+ZPrepass.fx<br>
+</details>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h2>
+<h3 id="%E3%83%BB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0">・プログラム</h3>
+<p>Visual Studio 2019<br></p>
+<h3 id="%E3%83%BB%E3%83%A2%E3%83%87%E3%83%AB">・モデル</h3>
+<p>3ds Max <br>
+blender<br></p>
+<h3 id="%E3%83%BB%E7%94%BB%E5%83%8F">・画像</h3>
+<p>Adobe Photoshop<br></p>
+<h3 id="%E3%83%BB%E3%82%A8%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88">・エフェクト</h3>
+<p>Effekseer<br></p>
+<h3 id="%E3%83%BB%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%87%E3%83%90%E3%83%83%E3%82%B0">・グラフィックデバッグ</h3>
+<p>RenderDoc<br></p>
+<h3 id="%E3%83%BB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86">・バージョン管理</h3>
+<p>Github<br></p>
+<h3 id="%E3%83%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86">・スケジュール管理</h3>
+<p>Notion<br></p>
+<h2 id="%E5%88%B6%E4%BD%9C%E4%BA%BA%E6%95%B0">制作人数</h2>
+<p>1人</p>
+<h2 id="%E9%96%8B%E7%99%BA%E6%9C%9F%E9%96%93">開発期間</h2>
+<p>2022年10月～現在</p>
+<h1 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. 操作説明</h1>
+<p><img src="Slide1.png" alt="Alt text"></p>
+<h1 id="3-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">3. ゲーム内容</h1>
+<h2 id="%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%AE%E6%B5%81%E3%82%8C">ゲームの流れ</h2>
+<p>少年を操作し、ゴールにある宝石を手に入れよう。</p>
+<p><img src="stage1.png" width="700" height=456px ><img src="stage2.png" width="700" height=456px ></p>
+<p><strong>ゲームクリア</strong><br>
+ゴールにある宝石を手に入れるとゲームクリアです。<br>
+<img src="goal.png" width="700" height=456px ></p>
+<p><strong>ゲームオーバー</strong><br>
+左上に表示されている残機が０になるか、右上に表示されている制限時間が０になるとゲームオーバーです。<br>
+残機は、敵に倒されるかステージ外に落ちると１ずつ減っていきます。<br>
+残機が減った場合、規定の位置に戻ります。<br>
+<img src="UI.png" width="700" height=456px >
+<img src="des.png" width="700" height=456px ></p>
+<h1 id="4-%E3%81%93%E3%81%A0%E3%82%8F%E3%82%8A%E3%83%BB%E5%B7%A5%E5%A4%AB%E3%81%97%E3%81%9F%E9%83%A8%E5%88%86">4. こだわり・工夫した部分</h1>
+<h2 id="%E6%93%8D%E4%BD%9C">操作</h2>
+<h3 id="%E5%BE%85%E6%A9%9F">待機</h3>
+<p>様々な既存のゲーム（マリオ、スマブラなど）で操作をせずにしていると、キャラクター独自のモーションに変化することを参考にしました。<br>
+一定時間操作していないと待機モーションが変化するようにしました。<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](Idle_video.png)">
+<source src="Idle.mp4"type="video/mp4">
+</video>
+<h3 id="%E7%A7%BB%E5%8B%95">移動</h3>
+<p><strong>歩き</strong><br>
+Lスティックを倒す事で、プレイヤーが歩きます。<br>
+<strong>ダッシュ</strong><br>
+Lスティック＋ダッシュボタンでプレイヤーがダッシュします。<br>
+一定時間ダッシュし続けるとスーパーダッシュに変化します。<br>
+通常ダッシュとスーパーダッシュでは、速度が異なります。<br>
+通常ダッシュでは超えられない場所も、スーパーダッシュで超えることが出来ます。<br></p>
+<p>歩き、ダッシュ、スーパーダッシュの差別化<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](walk_dash_video">
+<source src="walk_dash.mp4"type="video/mp4">
+</video>
+<h3 id="%E5%85%B1%E9%80%9A%E3%81%AE%E4%BB%95%E6%A7%98"><strong>共通の仕様</strong></h3>
+<p>移動をやめた時、現在の速度を徐々に落とす事で慣性が付くようにしました。<br>
+<strong>カメラ切り替え時の移動処理</strong><br>
+カメラを途中で切り替えた時、プレイヤーの移動方向が急に変わり操作のしづらさを感じたため、既存の3Dゲームを参考に実装しました。<br></p>
+<p>カメラの前、右方向とスティックの方向を使いプレイヤーの移動を実装しました。<strong>[1]</strong><br>
+カメラ切り替え時、１フレーム前のカメラ方向を使い移動方向維持するようにしました。<strong>[2]</strong><br>
+スティックの入力方向が変わるか、スティックを離すことで、現在のカメラ方向に移動方向が変わるようにしました。<strong>[3]</strong><br></p>
+<p><img src="camera_move1.png" width="400" height=456px ><img src="camera_move2.png" width="400" height=456px ><img src="camera_move3.png" width="400" height=456px ></p>
+<p>実際のゲーム画面<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
+<source src="move_camera.mp4"type="video/mp4">
+</video>
+<p><strong>ジャンプ</strong></p>
+<p>ジャンプボタンを押すとプレイヤーがジャンプします。<br>
+段差を登る、敵を倒す、ブロックを破壊する時に使います。<br>
+ジャンプをすると再び着地するまでジャンプ出来ませんが、ジャンプで敵を倒すと再びジャンプすることが出来ます。<br></p>
+<p>ジャンプボタンを押した時間によって、ジャンプ力が変化します。<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](jump_video)">
+<source src="jump.mp4"type="video/mp4">
+</video>
+<p>マリオはジャンプした時の軌道が放物線にならないのが特徴的です。これは、上昇速度と下降速度が異なるからです。<br></p>
+<p>そこで、上昇中の重力を弱くし、下降中の重力を強くすることで、再現しました。<br></p>
+<img src="jump.png" width="780" height=456px >
+<p><strong>ヒップドロップ</strong><br>
+空中でヒップドロップボタンを入力でプレイヤーがヒップドロップします。<br>
+敵を倒す、ブロックを破壊する用途の他に、素早く真下に着地することが出来ます。<br>
+ヒップドロップ中はLスティックの操作は効かないようにしています。<br>
+アニメーションイベントを利用して、回転中は重力を０に、回転後は強い重力を与えています。<br></p>
+<p><em>問題点と解決</em><br>
+しかし、ヒップドロップで敵を倒そうとすると、プレイヤーの落下速度が速すぎて敵を倒せていても敵の攻撃判定に衝突し相打ちしてしまう（敵が倒れる時に敵の攻撃判定も消える為)ので、ヒップドロップ中は無敵にする事にしました。<br></p>
+<p>ですが、無敵にしてしまうと全ての敵を安全に倒せるようになってしまうと考え、着地してから再度動けるようになる時間（後隙）を長めに設定しました。<br>
+これにより、目の前の敵に対してヒップドロップを外す、または別の敵に後隙を狩られるリスクを付けバランスを調整しました。<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](hipdrop_video)">
+<source src="hipdrop.mp4"type="video/mp4">
+</video>
+<h2 id="%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B8">ステージ</h2>
+<h3 id="%E8%83%8C%E6%99%AF">背景</h3>
+<p>プレイヤーのモデルに合わせて、ローポリで作成しました。<br>
+画面に動きが欲しかったので、所々の背景モデルにアニメーションを追加しました。<br></p>
+<p><img src="stage3.png" width="780" height=456px ><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](stage_video)">
+<source src="stage.mp4"type="video/mp4">
+</video>
+<h3 id="%E9%B3%A5">鳥</h3>
+<p>プレイヤーが近づくと各鳥は規定の方向（今回は左斜め前）に飛び立つ。<br></p>
+<h3 id="%E5%B0%8F%E7%9F%B3">小石</h3>
+<p>プレイヤーと衝突（近づく）とプレイヤーの回転方向を <strong>一度</strong> だけ呼び出し、その方向に動かす。<br>
+（途中でプレイヤーの方向が変わると小石の方向も変わってしまう為、一度だけ）<br></p>
+<h2 id="%E6%95%B5">敵</h2>
+<h3 id="span-style%22color-red-%22%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0span%E8%BF%BD%E3%81%84%E3%81%8B%E3%81%91%E3%81%A6%E3%81%8F%E3%82%8B%E6%95%B5"><span style="color: red; ">スライム</span>（追いかけてくる敵）</h3>
+<p><img src="enemy_red.png" width="700" height=456px ><br>
+プレイヤーを見つけると地面を素早く跳ねて追いかけてきます。（XZ軸移動）<br>
+段差を降りることは出来ますが登るのことは出来ません。<br></p>
+<h3 id="span-style%22color-orange-%22%E3%83%8F%E3%83%81span%E9%A3%9B%E3%82%93%E3%81%A7%E8%BF%BD%E3%81%84%E3%81%8B%E3%81%91%E3%81%A6%E3%81%8F%E3%82%8B%E6%95%B5"><span style="color: orange; ">ハチ</span>（飛んで追いかけてくる敵)</h3>
+<p><img src="enemy_yellow.png" width="700" height=456px ><br>
+プレイヤーが近づくと追いかけてくるように移動します。（XYZ軸移動）<br>
+<span style="color: red; ">スライム</span>とは違い、飛んで追いかけてくるためY軸も移動させるようにしました。<br>
+<span style="color: red; ">スライム</span>と違い段差を無視出来ますが、ダッシュで逃げ切れるほど移動速度が遅くなっています。<br>
+プレイヤーと全く同じ高さで追いかけてくると踏んで倒しにくいため、プレイヤーの少し下を追いかけてくるようにしています。<br></p>
+<h3 id="span-style%22color-gray-%22%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88span%E9%81%A0%E8%B7%9D%E9%9B%A2%E6%94%BB%E6%92%83%E3%82%92%E8%A1%8C%E3%81%86%E6%95%B5"><span style="color: gray; ">ロボット</span>（遠距離攻撃を行う敵）</h3>
+<p><img src="enemy_green.png" width="700" height=456px ><br>
+砲弾を発射し攻撃してくる遠距離エネミーです。<br>
+本体に攻撃判定はありませんが、ジャンプでは倒せずヒップドロップを使う必要があります。<br>
+また、砲弾を踏むことで、距離を詰めやすくなります。<br>
+遠距離攻撃を行う敵とヒップドロップでしか倒せない敵が欲しかった為、制作しました。<br></p>
+<p><strong>基本的な当たり判定</strong><br>
+敵の側面からぶつかるとプレイヤーが死亡し、真上からぶつかると敵が死亡します。<br></p>
+<p><img src="enemy_red2.png" width="780" height=456px ><br></p>
+<h2 id="%E3%82%AE%E3%83%9F%E3%83%83%E3%82%AF">ギミック</h2>
+<p><strong>壊せるブロック</strong><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](block_video">
+<source src="block.mp4"type="video/mp4">
+</video>
+<p><em>当たり判定</em><br></p>
+<p>プレイヤーの足元の判定とブロックの当たり判定が衝突すると、プレイヤーの重力が０になります。<strong>[１]</strong><br>
+プレイヤーの頭上の判定・ヒップドロップの判定とブロックの当たり判定が衝突すると、ブロックが破壊されます。<strong>[2]</strong><br>
+これだけでは、プレイヤーがブロックの真横から衝突しようとすると、ブロックを貫通してしまう為、プレイヤーの身体に当たり判定を追加して、ブロックの当たり判定と衝突すると、プレイヤーのXZの移動速度を０にします。<strong>[1]</strong><br></p>
+<p><img src="block1.png" width="400" height=456px ><img src="block2.png" width="400" height=456px ><br></p>
+<p><strong>大砲</strong><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+<p>プレイヤーが大砲に近づくと大砲のアニメーション再生され発射、 <strong>空中にある当たり判定</strong> まで移動します。この時、<strong>重力を０</strong> にします。<br>
+そして、空中の当たり判定にプレイヤーが衝突すると、速度を徐々に落とします。また、この時に <strong>重力を元に戻す</strong> ことで着地します。<br>
+<img src="fort.png" width="780" height=456px ><br></p>
+<h2 id="%E6%BC%94%E5%87%BA">演出</h2>
+<p><strong>カメラ</strong><br>
+所々でカメラの切り替えを行いました。<br>
+<strong>奥行きを分かりやすくするカメラ</strong><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
+<source src="move_camera.mp4"type="video/mp4">
+</video>
+<p><strong>大砲用のカメラ</strong><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](fort_video">
+<source src="fort.mp4"type="video/mp4">
+</video>
+<p><strong>ゴール用のカメラ</strong><br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](goal_video">
+<source src="goal.mp4"type="video/mp4">
+</video>
+<p><strong>影</strong><br>
+ジャンプなどの着地先を分かりやすくする為、ライトカメラの方向を <strong>真下</strong> に設定しました。<br></p>
+<img src="stage1.png" width="780" height=456px >
+<p>プレイヤーの座標を中心に <strong>影の濃さ</strong> を変更しています。(プレイヤーから離れるほど薄くなる）<br></p>
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](shadow_video">
+<source src="shadow.mp4"type="video/mp4">
+</video>
+<h1 id="5-%E7%8F%BE%E7%8A%B6%E3%81%AE%E5%8F%8D%E7%9C%81%E7%82%B9%E3%81%A8%E4%BB%8A%E5%BE%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">5. 現状の反省点と今後について</h1>
+<h2 id="%E5%8F%8D%E7%9C%81%E7%82%B9br"><strong>反省点</strong><br></h2>
+<h2 id="%E4%BB%8A%E5%BE%8Cbr"><strong>今後</strong><br></h2>
+
+</body>
+</html>
