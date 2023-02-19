@@ -12,7 +12,8 @@
 
 # 1. 作品概要
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/2Plp1csDpuQ/0.jpg)](http://www.youtube.com/watch?v=2Plp1csDpuQ)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2Plp1csDpuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ## タイトル
 ## _スーパーアクション３D_<br>
