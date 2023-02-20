@@ -10,6 +10,8 @@
 - [3. ゲーム内容](#3-ゲーム内容)
 - [4. こだわり・工夫した部分](#4-こだわり工夫した部分)
 
+
+
 # 1. 作品概要
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Plp1csDpuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -185,6 +187,7 @@ __ゲームオーバー__<br>
 <img src="des.png" width="700" height=456px >
 
 # 4. こだわり・工夫した部分
+
 ## 操作
 ### 待機
 様々な既存のゲームで操作をせずにしていると、キャラクター独自のモーションに変化することを参考にしました。<br>
