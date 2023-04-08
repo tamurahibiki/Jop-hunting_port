@@ -1,6 +1,6 @@
 <h1> スーパーアクション3D<h1>
 河原電子ビジネス専門学校<br>
-ゲームクリエイター科　2年　田村響己<br>
+ゲームクリエイター科　田村響己<br>
 
 <!-- omit in toc -->
 # 目次
@@ -11,10 +11,9 @@
 - [4. こだわり・工夫した部分](#4-こだわり工夫した部分)
 
 
-
 # 1. 作品概要
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2Plp1csDpuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LGooSktOw0s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ## タイトル
@@ -196,8 +195,8 @@ __ゲームオーバー__<br>
 左上に表示されている残機が０になるか、右上に表示されている制限時間が０になるとゲームオーバーです。<br>
 残機は、敵に倒されるかステージ外に落ちると１ずつ減っていきます。<br>
 残機が減った場合、規定の位置に戻ります。<br>
-<img src="UI.png" width="700" height=456px >
-<img src="des.png" width="700" height=456px >
+<img src="stage_video.png" width="700" height=456px >
+
 
 # 4. こだわり・工夫した部分
 
@@ -369,9 +368,10 @@ __影__<br>
 
 <img src="stage1.png" width="780" height=456px >
 
-プレイヤーの座標を中心に __影の濃さ__ を変更しています。(プレイヤーから離れるほど薄くなる）<br>
+プレイヤーの座標を中心に __影の濃さ__ を変更しています。（プレイヤーから離れるほど薄くなる）<br>
+これにより少しでも、処理負荷を掛けないようにしています。<br>
 
-<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](shadow_video">
+<video controls preload width="780" autoplay loop muted="true" poster="![Alt text](shadow_video.png">
 <source src="shadow.mp4"type="video/mp4">
 </video>
 
