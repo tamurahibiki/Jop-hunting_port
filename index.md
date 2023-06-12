@@ -9,6 +9,8 @@
 - [2. 操作説明](#2-操作説明)
 - [3. ゲーム内容](#3-ゲーム内容)
 - [4. こだわり・工夫した部分](#4-こだわり工夫した部分)
+- [5. 技術的部分](#5-技術的部分)
+
 
 
 # 1. 作品概要
@@ -103,6 +105,8 @@ IBgActor.h<br>
 IEnemy.cpp<br>
 IEnemy.h<br>
 main.cpp<br>
+Puddle.cpp<br>
+Puddle.h<br>
 Pebble.cpp<br>
 Pebble.h<br>
 Pipe.cpp<br>
@@ -159,6 +163,8 @@ SkyCube.h<br>
 SkyCubr.cpp<br>
 SpriteRender.h<br>
 SpriteRender.cpp<br>
+Ssr.h<br>
+Ssr.cpp<br>
 </details>
 
 ##
@@ -171,6 +177,7 @@ ModelVSCommon.h<br>
 PostEffect.fx<br>
 SkyCubeMap.fx<br>
 sprite.fx<br>
+Ssr.fx<br>
 ZPrepass.fx<br>
 </details>
 
@@ -178,7 +185,8 @@ ZPrepass.fx<br>
 ## 制作人数
 1人
 ## 開発期間
-2022年10月～2023年3月
+2022年10月～2023年3月<br>
+2023年6月 スクリーンスペースリフレクション(SSR)追加
 # 2. 操作説明
 ![Alt text](Slide1.png)
 # 3. ゲーム内容
@@ -250,8 +258,8 @@ __ジャンプ__<br>
 </video>
 
 マリオはジャンプした時の軌道が放物線にならないのが特徴的です。これは、上昇速度と下降速度が異なるからです。<br>
-
 そこで、上昇中の重力を弱くし、下降中の重力を強くすることで、再現しました。<br>
+これにより、狙った地点へ速く着地することができます。<br>
 
 <img src="jump.png" width="780" height=456px >
 
@@ -376,3 +384,37 @@ __影__<br>
 </video>
 
 <img src="shadow_camera.png" width="780" height=456px >
+
+# 5. 技術的部分
+## スクリーンスペース・リフレクション(SSR)
+<img src="ssr.png" width="780" height=456px >
+
+### 基本的なアルゴリズム
+まず，一度シーンを描画します。そのとき、カメラ空間における位置情報、深度情報と法線情報を出力します。<br>
+__出力した深度テクスチャ__<br>
+<img src="ssr_depht.png" width="780" height=456px >
+
+__出力した法線テクスチャ__<br>
+<img src="ssr_normal.png" width="780" height=456px >
+
+また、今回は部分的に反射させたいため、 スムースネステクスチャからスムースの値（α）にアクセスし1.0の  箇所だけ反射するようにする。<br>
+__出力したスムースネステクスチャ__<br>
+
+<img src="ssr_specular.png" width="780" height=456px >
+
+次にカメラ位置からスクリーン上の各ピクセルにおける位置に向かうベクトルと法線ベクトルから反射ベクトルを求めます。位置から反射ベクトル方向に深度バッファを使い、物体と交差したときに、その位置を投影したピクセルをサンプリングして周囲からの反射光として計算します。反射を計算したシーンはアーティファクトが目立ってしまうので、ぼかしをかけます。そして、元のシーンを合成します。<br>
+
+__反射ベクトルを使ってシーンとの衝突判定を行う。__<br>
+<img src="ssr_ar.png" width="780" height=456px >
+
+__出力した反射テクスチャ・ぼかし無し__<br>
+<img src="ssr_ssr.png" width="780" height=456px >
+
+__出力した反射テクスチャ・ぼかし有りの一部__<br>
+<img src="ssr_blur.png" width="780" height=456px >
+
+__合成されたシーン・ぼかし有り__<br>
+<img src="ssr.png" width="780" height=456px >
+
+__全反射・ぼかし無しの場合__<br>
+<img src="ssr_all.png" width="780" height=456px >
