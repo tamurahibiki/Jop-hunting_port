@@ -49,8 +49,7 @@ Github<br>
 ### ・スケジュール管理
 Notion<br>
 ## 作成したソースコード
-##
-<details><summary>ゲーム部分(cpp,h)</summary>
+### ゲーム部分(cpp,h)<br>
 
 Bard.cpp<br>
 Bard.h<br>
@@ -77,9 +76,9 @@ Flower.h<br>
 FlowerBed.cpp<br>
 FlowerBed.h<br>
 Fort.cpp<br>
-FOrt.h<br>
+F0rt.h<br>
 FortTop.cpp<br>
-FOrtTop.h<br>
+F0rtTop.h<br>
 Forward.cpp<br>
 Forward.h<br>
 Game.cpp<br>
@@ -137,49 +136,45 @@ Wood_Road.cpp<br>
 Wood_Rock.h<br>
 WoodenBox.cpp<br>
 WoodenBox.h<br>
-</details>
 
-##
-<details><summary>エンジン部分(cpp,h)</summary>
-Bloom.h<br>
+### エンジン部分(cpp,h)<br>
+
 Bloom.cpp<br>
-CollisionObject.h<br>
+Bloom.h<br>
 CollisionObject.cpp<br>
-FontRender.h<br>
+CollisionObject.h<br>
 FontRender.cpp<br>
-IRenderer.h<br>
+FontRender.h<br>
 IRenderer.cpp<br>
-LightALL.h<br>
+IRenderer.h<br>
 LightALL.cpp<br>
-ModelRender.h<br>
+LightALL.h<br>
 ModelRender.cpp<br>
-PostEffect.h<br>
+ModelRender.h<br>
 PostEffect.cpp<br>
-RenderingEngine.h<br>
+PostEffect.h<br>
 RenderingEngine.cpp<br>
-ShadowMapRender.h<br>
+RenderingEngine.h<br>
 ShadowMapRender.cpp<br>
-SkyCube.h<br>
-SkyCubr.cpp<br>
-SpriteRender.h<br>
+ShadowMapRender.h<br>
+SkyCube.cpp<br>
+SkyCubr.h<br>
 SpriteRender.cpp<br>
-Ssr.h<br>
+SpriteRender.h<br>
 Ssr.cpp<br>
-</details>
+Ssr.h<br>
 
-##
-<details><summary>シェーダー部分(fx,h)</summary>
+### シェーダー部分(fx,h)<br>
+
 DrawShadowMap.fx<br>
 gaussianBlur.fx<br>
 light.fx<br>
 model.fx<br>
-ModelVSCommon.h<br>
 PostEffect.fx<br>
 SkyCubeMap.fx<br>
 sprite.fx<br>
 Ssr.fx<br>
 ZPrepass.fx<br>
-</details>
 
 
 ## 制作人数
