@@ -573,8 +573,8 @@ ZPrepass.fx<br></p>
 <source src="walk_dash.mp4"type="video/mp4">
 </video>
 <h3 id="%E5%85%B1%E9%80%9A%E3%81%AE%E4%BB%95%E6%A7%98"><strong>共通の仕様</strong></h3>
-<p>移動をやめた時、現在の速度を徐々に落とす事で慣性が付くようにしました。<br>
-<strong>カメラ切り替え時の移動処理</strong><br>
+<p>移動をやめた時、現在の速度を徐々に落とす事で慣性が付くようにしました。<br></p>
+<p><strong>カメラ切り替え時の移動処理</strong><br>
 カメラを途中で切り替えた時、プレイヤーの移動方向が急に変わり操作のしづらさを感じたため、既存の3Dゲームを参考に実装しました。<br></p>
 <p>カメラの前、右方向とスティックの方向を使いプレイヤーの移動を実装しました。<strong>[1]</strong><br>
 カメラ切り替え時、１フレーム前のカメラ方向を使い移動方向維持するようにしました。<strong>[2]</strong><br>
@@ -584,6 +584,7 @@ ZPrepass.fx<br></p>
 <video controls preload width="780" autoplay loop muted="true" poster="![Alt text](move_camera_video">
 <source src="move_camera.mp4"type="video/mp4">
 </video>
+<hr>
 <p><strong>ジャンプ</strong><br>
 敵を踏んで倒す、ブロックを破壊する時に使います。<br>
 ジャンプをすると再び着地するまでジャンプ出来ませんが、ジャンプで敵を倒すと再びジャンプすることが出来ます。<br></p>
@@ -595,6 +596,7 @@ ZPrepass.fx<br></p>
 そこで、上昇中の重力を弱くし、下降中の重力を強くすることで、再現しました。<br>
 これにより、狙った地点へ速く着地することができます。<br></p>
 <img src="jump.png" width="780" height=456px >
+<hr>
 <p><strong>ヒップドロップ</strong><br>
 空中でヒップドロップボタンを入力でプレイヤーがヒップドロップします。<br>
 敵を倒す、ブロックを破壊する用途の他に、素早く真下に着地することが出来ます。<br>
@@ -673,6 +675,7 @@ ZPrepass.fx<br></p>
 <source src="goal.mp4"type="video/mp4">
 </video>
 <img src="goal_camera.png" width="780" height=456px >
+<hr>
 <p><strong>影</strong><br>
 ジャンプなどの着地先を分かりやすくする為、ライトカメラの方向を <strong>真下</strong> に設定しました。<br></p>
 <img src="stage1.png" width="780" height=456px >
@@ -705,6 +708,7 @@ ZPrepass.fx<br></p>
 <img src="ssr.png" width="780" height=456px ></p>
 <p><strong>全反射・ぼかし無しの場合</strong><br>
 <img src="ssr_all.png" width="780" height=456px ></p>
+<hr>
 <h2 id="fast-approximate-anti-aliasingfxaa">Fast Approximate Anti-Aliasing(FXAA)</h2>
 <h3 id="fast-approximate-anti-aliasingfxaa%E3%81%A8%E3%81%AFbr">Fast Approximate Anti-Aliasing(FXAA)とは？<br></h3>
 <p>Fast Approximate Anti-Aliasing(以下、FXAA)とは、すばやく近似するアンチエイリアシングと言うことで、他のアンチエイリアシング技法と比べて軽く、簡単にジャギーを軽減することができる技法。<br></p>
