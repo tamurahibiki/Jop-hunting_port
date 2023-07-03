@@ -145,6 +145,8 @@ CollisionObject.cpp<br>
 CollisionObject.h<br>
 FontRender.cpp<br>
 FontRender.h<br>
+Fxaa.cpp<br>
+Fxaa.h<br>
 IRenderer.cpp<br>
 IRenderer.h<br>
 LightALL.cpp<br>
@@ -167,6 +169,7 @@ Ssr.h<br>
 ### シェーダー部分(fx,h)<br>
 
 DrawShadowMap.fx<br>
+fxaa.fx<br>
 gaussianBlur.fx<br>
 light.fx<br>
 model.fx<br>
@@ -181,7 +184,9 @@ ZPrepass.fx<br>
 1人
 ## 開発期間
 2022年10月～2023年3月<br>
-2023年6月 スクリーンスペースリフレクション(SSR)追加
+2023年6月 スクリーンスペースリフレクション(SSR)追加<br>
+2023年7月 Fast Approximate Anti-Aliasing(FXAA)追加<br>
+
 # 2. 操作説明
 ![Alt text](Slide1.png)
 # 3. ゲーム内容
@@ -413,3 +418,34 @@ __合成されたシーン・ぼかし有り__<br>
 
 __全反射・ぼかし無しの場合__<br>
 <img src="ssr_all.png" width="780" height=456px >
+
+
+## Fast Approximate Anti-Aliasing(FXAA)
+### Fast Approximate Anti-Aliasing(FXAA)とは？<br>
+Fast Approximate Anti-Aliasing(以下、FXAA)とは、すばやく近似するアンチエイリアシングと言うことで、他のアンチエイリアシング技法と比べて軽く、簡単にジャギーを軽減することができる技法。<br>
+
+FXAAの手法は極めてシンプルなもので、「ピクセル色を周囲と比較して輝度差を調べ，輝度差があるピクセルの色は周囲と混ぜ合わせる」というものになっている。<br>
+たとえば、背景とオブジェクトには大きな輝度差があるとしよう。このとき、あるピクセルで周囲との輝度の差を調べ、輝度の差があれば、オブジェクトの縁の部分がピクセルに乗っている可能性があると判断できる。ピクセルの輝度の差（＝輝度差の大きいピクセルのエッジ）をとっていくことで、オブジェクトの縁（へり）を推定できるわけだ。<br>
+そしてこの「推定できた縁」に沿って、「縁が横切る比率」に基づいてピクセルの色を混ぜ、それによって輪郭をぼかそうというのがFXAAの基本的な考え方になる。<br>
+
+<img src="fxaa_pikuseru.jpg" width="780" height=456px >
+
+FXAAではサブピクセルを使わずに済むのが利点だ。要は、2Dレベルの画像処理で、ギザギザ感を低減できる。また、輝度の差があればブレンドが行われるので、テクスチャに描かれた線のようなものに対しても有効に機能する。<br>
+<br>
+<br>
+実際のゲームではポストエフェクトとしてFXAA処理が行われるのだが「FXAAのシェーダコードはかなり長い」ものの「レイテンシは0.1msやその程度で済む」と竹重氏は述べていた。輪郭を検出して色のブレンドを行う処理は相応に複雑だが、「深度が格納されているバッファ（＝Zバッファ）を参照する」作業が不要で、かつ、現在のGPUはシェーダコード――より具体的に言えばピクセルシェーダのコード――を高速に実行できるため、FXAAのレイテンシは極めて低いのだろう。つまり、GPUで長いシェーダコードを高速に実行できるようになったからこそ可能になったAA技法と述べていいかもしれない。
+
+引用元 [https://www.4gamer.net/games/120/G012093/20121125002/](https://www.4gamer.net/games/120/G012093/20121125002/)<br>
+
+### シーンに描画する
+1,まず、FXAAをかけた絵を描画するためのFXAA用のレンダリングターゲットを切り替えます。<br>
+2.元シーンをテクスチャとしてスプライトを描画し、アンチをかけます。<br>
+3.レンダリングターゲットを元シーンに切り替え、2のスプライトを描画します。<br>
+
+<img src="fxaa_kaisetu.png" width="780" height=456px >
+
+__FXAA無し(元シーン)の場合__<br>
+<img src="fxaa_off.png" width="780" height=456px >
+
+__FXAA ありの場合__<br>
+<img src="fxaa_on.png" width="780" height=456px >

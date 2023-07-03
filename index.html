@@ -504,6 +504,8 @@ CollisionObject.cpp<br>
 CollisionObject.h<br>
 FontRender.cpp<br>
 FontRender.h<br>
+Fxaa.cpp<br>
+Fxaa.h<br>
 IRenderer.cpp<br>
 IRenderer.h<br>
 LightALL.cpp<br>
@@ -524,6 +526,7 @@ Ssr.cpp<br>
 Ssr.h<br></p>
 <h3 id="%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%80%E3%83%BC%E9%83%A8%E5%88%86fxhbr">シェーダー部分(fx,h)<br></h3>
 <p>DrawShadowMap.fx<br>
+fxaa.fx<br>
 gaussianBlur.fx<br>
 light.fx<br>
 model.fx<br>
@@ -536,7 +539,8 @@ ZPrepass.fx<br></p>
 <p>1人</p>
 <h2 id="%E9%96%8B%E7%99%BA%E6%9C%9F%E9%96%93">開発期間</h2>
 <p>2022年10月～2023年3月<br>
-2023年6月 スクリーンスペースリフレクション(SSR)追加</p>
+2023年6月 スクリーンスペースリフレクション(SSR)追加<br>
+2023年7月 Fast Approximate Anti-Aliasing(FXAA)追加<br></p>
 <h1 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. 操作説明</h1>
 <p><img src="Slide1.png" alt="Alt text"></p>
 <h1 id="3-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">3. ゲーム内容</h1>
@@ -701,6 +705,27 @@ ZPrepass.fx<br></p>
 <img src="ssr.png" width="780" height=456px ></p>
 <p><strong>全反射・ぼかし無しの場合</strong><br>
 <img src="ssr_all.png" width="780" height=456px ></p>
+<h2 id="fast-approximate-anti-aliasingfxaa">Fast Approximate Anti-Aliasing(FXAA)</h2>
+<h3 id="fast-approximate-anti-aliasingfxaa%E3%81%A8%E3%81%AFbr">Fast Approximate Anti-Aliasing(FXAA)とは？<br></h3>
+<p>Fast Approximate Anti-Aliasing(以下、FXAA)とは、すばやく近似するアンチエイリアシングと言うことで、他のアンチエイリアシング技法と比べて軽く、簡単にジャギーを軽減することができる技法。<br></p>
+<p>FXAAの手法は極めてシンプルなもので、「ピクセル色を周囲と比較して輝度差を調べ，輝度差があるピクセルの色は周囲と混ぜ合わせる」というものになっている。<br>
+たとえば、背景とオブジェクトには大きな輝度差があるとしよう。このとき、あるピクセルで周囲との輝度の差を調べ、輝度の差があれば、オブジェクトの縁の部分がピクセルに乗っている可能性があると判断できる。ピクセルの輝度の差（＝輝度差の大きいピクセルのエッジ）をとっていくことで、オブジェクトの縁（へり）を推定できるわけだ。<br>
+そしてこの「推定できた縁」に沿って、「縁が横切る比率」に基づいてピクセルの色を混ぜ、それによって輪郭をぼかそうというのがFXAAの基本的な考え方になる。<br></p>
+<img src="fxaa_pikuseru.jpg" width="780" height=456px >
+<p>FXAAではサブピクセルを使わずに済むのが利点だ。要は、2Dレベルの画像処理で、ギザギザ感を低減できる。また、輝度の差があればブレンドが行われるので、テクスチャに描かれた線のようなものに対しても有効に機能する。<br>
+<br>
+<br>
+実際のゲームではポストエフェクトとしてFXAA処理が行われるのだが「FXAAのシェーダコードはかなり長い」ものの「レイテンシは0.1msやその程度で済む」と竹重氏は述べていた。輪郭を検出して色のブレンドを行う処理は相応に複雑だが、「深度が格納されているバッファ（＝Zバッファ）を参照する」作業が不要で、かつ、現在のGPUはシェーダコード――より具体的に言えばピクセルシェーダのコード――を高速に実行できるため、FXAAのレイテンシは極めて低いのだろう。つまり、GPUで長いシェーダコードを高速に実行できるようになったからこそ可能になったAA技法と述べていいかもしれない。</p>
+<p>引用元 <a href="https://www.4gamer.net/games/120/G012093/20121125002/">https://www.4gamer.net/games/120/G012093/20121125002/</a><br></p>
+<h3 id="%E3%82%B7%E3%83%BC%E3%83%B3%E3%81%AB%E6%8F%8F%E7%94%BB%E3%81%99%E3%82%8B">シーンに描画する</h3>
+<p>1,まず、FXAAをかけた絵を描画するためのFXAA用のレンダリングターゲットを切り替えます。<br>
+2.元シーンをテクスチャとしてスプライトを描画し、アンチをかけます。<br>
+3.レンダリングターゲットを元シーンに切り替え、2のスプライトを描画します。<br></p>
+<img src="fxaa_kaisetu.png" width="780" height=456px >
+<p><strong>FXAA無し(元シーン)の場合</strong><br>
+<img src="fxaa_off.png" width="780" height=456px ></p>
+<p><strong>FXAA ありの場合</strong><br>
+<img src="fxaa_on.png" width="780" height=456px ></p>
 
 </body>
 </html>
