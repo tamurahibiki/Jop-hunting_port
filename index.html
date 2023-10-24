@@ -512,6 +512,8 @@ LightALL.cpp<br>
 LightALL.h<br>
 ModelRender.cpp<br>
 ModelRender.h<br>
+OutLine.cpp<br>
+OutLine.h<br>
 PostEffect.cpp<br>
 PostEffect.h<br>
 RenderingEngine.cpp<br>
@@ -524,12 +526,13 @@ SpriteRender.cpp<br>
 SpriteRender.h<br>
 Ssr.cpp<br>
 Ssr.h<br></p>
-<h3 id="%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%80%E3%83%BC%E9%83%A8%E5%88%86fxhbr">シェーダー部分(fx,h)<br></h3>
+<h3 id="%E3%82%B7%E3%82%A7%E3%83%BC%E3%83%80%E3%83%BC%E9%83%A8%E5%88%86fxbr">シェーダー部分(fx)<br></h3>
 <p>DrawShadowMap.fx<br>
 fxaa.fx<br>
 gaussianBlur.fx<br>
 light.fx<br>
 model.fx<br>
+outline.fx<br>
 PostEffect.fx<br>
 SkyCubeMap.fx<br>
 sprite.fx<br>
@@ -540,7 +543,8 @@ ZPrepass.fx<br></p>
 <h2 id="%E9%96%8B%E7%99%BA%E6%9C%9F%E9%96%93">開発期間</h2>
 <p>2022年10月～2023年3月<br>
 2023年6月 スクリーンスペースリフレクション(SSR)追加<br>
-2023年7月 Fast Approximate Anti-Aliasing(FXAA)追加<br></p>
+2023年7月 Fast Approximate Anti-Aliasing(FXAA)<br>
+　　　　　輪郭線追加<br></p>
 <h1 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. 操作説明</h1>
 <p><img src="Slide1.png" alt="Alt text"></p>
 <h1 id="3-%E3%82%B2%E3%83%BC%E3%83%A0%E5%86%85%E5%AE%B9">3. ゲーム内容</h1>
@@ -728,8 +732,14 @@ ZPrepass.fx<br></p>
 <img src="fxaa_kaisetu.png" width="780" height=456px >
 <p><strong>FXAA無し(元シーン)の場合</strong><br>
 <img src="fxaa_off.png" width="780" height=456px ></p>
-<p><strong>FXAA ありの場合</strong><br>
+<p><strong>FXAAありの場合</strong><br>
 <img src="fxaa_on.png" width="780" height=456px ></p>
+<hr>
+<h2 id="%E8%BC%AA%E9%83%AD%E7%B7%9A">輪郭線</h2>
+<p><strong>輪郭線無しの場合</strong><br>
+<img src="notoutline.png" width="780" height=456px ></p>
+<p><strong>輪郭線ありの場合</strong><br>
+<img src="outline.png" width="780" height=456px ></p>
 
 </body>
 </html>

@@ -153,6 +153,8 @@ LightALL.cpp<br>
 LightALL.h<br>
 ModelRender.cpp<br>
 ModelRender.h<br>
+OutLine.cpp<br>
+OutLine.h<br>
 PostEffect.cpp<br>
 PostEffect.h<br>
 RenderingEngine.cpp<br>
@@ -166,13 +168,14 @@ SpriteRender.h<br>
 Ssr.cpp<br>
 Ssr.h<br>
 
-### シェーダー部分(fx,h)<br>
+### シェーダー部分(fx)<br>
 
 DrawShadowMap.fx<br>
 fxaa.fx<br>
 gaussianBlur.fx<br>
 light.fx<br>
 model.fx<br>
+outline.fx<br>
 PostEffect.fx<br>
 SkyCubeMap.fx<br>
 sprite.fx<br>
@@ -185,7 +188,9 @@ ZPrepass.fx<br>
 ## 開発期間
 2022年10月～2023年3月<br>
 2023年6月 スクリーンスペースリフレクション(SSR)追加<br>
-2023年7月 Fast Approximate Anti-Aliasing(FXAA)追加<br>
+2023年7月 Fast Approximate Anti-Aliasing(FXAA)<br>
+　　　　　輪郭線追加<br>
+
 
 # 2. 操作説明
 ![Alt text](Slide1.png)
@@ -453,5 +458,15 @@ FXAAではサブピクセルを使わずに済むのが利点だ。要は、2D�
 __FXAA無し(元シーン)の場合__<br>
 <img src="fxaa_off.png" width="780" height=456px >
 
-__FXAA ありの場合__<br>
+__FXAAありの場合__<br>
 <img src="fxaa_on.png" width="780" height=456px >
+
+-------------------------------------------------
+## 輪郭線
+
+
+__輪郭線無しの場合__<br>
+<img src="notoutline.png" width="780" height=456px >
+
+__輪郭線ありの場合__<br>
+<img src="outline.png" width="780" height=456px >
